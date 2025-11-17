@@ -1,13 +1,13 @@
 <?php
 
-namespace Dittofeed\Laravel;
+namespace Ideacrafters\Dittofeed;
 
-use Dittofeed\Laravel\Commands\DittofeedFlushCommand;
-use Dittofeed\Laravel\Commands\DittofeedStatsCommand;
-use Dittofeed\Laravel\Commands\DittofeedTestCommand;
-use Dittofeed\Laravel\Listeners\TrackLogin;
-use Dittofeed\Laravel\Listeners\TrackLogout;
-use Dittofeed\Laravel\Listeners\TrackRegistration;
+use Ideacrafters\Dittofeed\Commands\DittofeedFlushCommand;
+use Ideacrafters\Dittofeed\Commands\DittofeedStatsCommand;
+use Ideacrafters\Dittofeed\Commands\DittofeedTestCommand;
+use Ideacrafters\Dittofeed\Listeners\TrackLogin;
+use Ideacrafters\Dittofeed\Listeners\TrackLogout;
+use Ideacrafters\Dittofeed\Listeners\TrackRegistration;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Registered;
@@ -81,7 +81,7 @@ class DittofeedServiceProvider extends ServiceProvider
     {
         if (config('dittofeed.auto_track.enabled') && config('dittofeed.auto_track.page_views')) {
             $router = $this->app['router'];
-            $router->aliasMiddleware('dittofeed.track-pages', \Dittofeed\Laravel\Middleware\TrackPageViews::class);
+            $router->aliasMiddleware('dittofeed.track-pages', \Ideacrafters\Dittofeed\Middleware\TrackPageViews::class);
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dittofeed\Laravel\Commands;
+namespace Ideacrafters\Dittofeed\Commands;
 
 use Illuminate\Console\Command;
 

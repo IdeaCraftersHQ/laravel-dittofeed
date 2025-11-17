@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel\Listeners;
+namespace Ideacrafters\Dittofeed\Listeners;
 
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 use Illuminate\Auth\Events\Login;
 
 class TrackLogin

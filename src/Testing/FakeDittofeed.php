@@ -1,6 +1,6 @@
 <?php
 
-namespace Dittofeed\Laravel\Testing;
+namespace Ideacrafters\Dittofeed\Testing;
 
 use PHPUnit\Framework\Assert as PHPUnit;
 

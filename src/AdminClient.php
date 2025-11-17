@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel;
+namespace Ideacrafters\Dittofeed;
 
-use Dittofeed\Laravel\Exceptions\DittofeedException;
+use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;

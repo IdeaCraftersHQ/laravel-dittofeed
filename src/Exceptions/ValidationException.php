@@ -1,6 +1,6 @@
 <?php
 
-namespace Dittofeed\Laravel\Exceptions;
+namespace Ideacrafters\Dittofeed\Exceptions;
 
 use Exception;
 

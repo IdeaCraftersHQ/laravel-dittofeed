@@ -1,8 +1,8 @@
 # Dittofeed Laravel SDK
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/dittofeed/laravel.svg?style=flat-square)](https://packagist.org/packages/dittofeed/laravel)
-[![Total Downloads](https://img.shields.io/packagist/dt/dittofeed/laravel.svg?style=flat-square)](https://packagist.org/packages/dittofeed/laravel)
-[![License](https://img.shields.io/packagist/l/dittofeed/laravel.svg?style=flat-square)](https://packagist.org/packages/dittofeed/laravel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ideacrafters/laravel-dittofeed.svg?style=flat-square)](https://packagist.org/packages/ideacrafters/laravel-dittofeed)
+[![Total Downloads](https://img.shields.io/packagist/dt/ideacrafters/laravel-dittofeed.svg?style=flat-square)](https://packagist.org/packages/ideacrafters/laravel-dittofeed)
+[![License](https://img.shields.io/packagist/l/ideacrafters/laravel-dittofeed.svg?style=flat-square)](https://packagist.org/packages/ideacrafters/laravel-dittofeed)
 
 Laravel SDK for [Dittofeed](https://dittofeed.com) - an open-source customer engagement platform. This package provides a seamless integration with Laravel, enabling you to easily track user events, send targeted emails, and build automated customer journeys.
 
@@ -29,7 +29,7 @@ Laravel SDK for [Dittofeed](https://dittofeed.com) - an open-source customer eng
 Install the package via Composer:
 
 ```bash
-composer require dittofeed/laravel
+composer require ideacrafters/laravel-dittofeed
 ```
 
 The package will automatically register itself via Laravel's package auto-discovery.
@@ -56,7 +56,7 @@ DITTOFEED_WORKSPACE_ID=your-workspace-id # Optional, for admin operations
 ### Basic Event Tracking
 
 ```php
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 
 // Identify a user
 Dittofeed::identify('user-123', [
@@ -163,6 +163,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
+    use Ideacrafters\Dittofeed\Traits\TracksDittofeedEvents;
+
     use TracksDittofeedEvents;
 
     // Define which model events to track
@@ -198,7 +200,7 @@ Enable automatic page view tracking by adding the middleware to your `app/Http/K
 protected $middlewareGroups = [
     'web' => [
         // ... other middleware
-        \Dittofeed\Laravel\Middleware\TrackPageViews::class,
+        \Ideacrafters\Dittofeed\Middleware\TrackPageViews::class,
     ],
 ];
 ```
@@ -207,7 +209,7 @@ Or register it as a route middleware alias:
 
 ```php
 protected $routeMiddleware = [
-    'dittofeed.track-pages' => \Dittofeed\Laravel\Middleware\TrackPageViews::class,
+    'dittofeed.track-pages' => \Ideacrafters\Dittofeed\Middleware\TrackPageViews::class,
 ];
 ```
 
@@ -293,7 +295,7 @@ $broadcast = Dittofeed::admin()->sendBroadcast([
 Use the fake implementation in your tests:
 
 ```php
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 
 public function test_user_registration_tracks_event()
 {
@@ -420,6 +422,8 @@ Define custom properties for model events:
 ```php
 class Order extends Model
 {
+    use Ideacrafters\Dittofeed\Traits\TracksDittofeedEvents;
+
     use TracksDittofeedEvents;
 
     protected function getDittofeedProperties(): array
@@ -486,7 +490,7 @@ $order->trackCustomEvent('Order Shipped', [
 ## Support
 
 - **Documentation**: [https://docs.dittofeed.com](https://docs.dittofeed.com)
-- **Issues**: [GitHub Issues](https://github.com/dittofeed/laravel/issues)
+- **Issues**: [GitHub Issues](https://github.com/ideacrafters/laravel-dittofeed/issues)
 - **Community**: [Dittofeed Discord](https://discord.gg/dittofeed)
 
 ## Contributing
@@ -503,10 +507,11 @@ The MIT License (MIT). Please see [LICENSE](LICENSE) for more information.
 
 ## Credits
 
-- [Dittofeed Team](https://github.com/dittofeed)
-- [All Contributors](https://github.com/dittofeed/laravel/contributors)
+- [Amar Neche](https://github.com/amarneche)
+- [IdeaCrafters](https://github.com/ideacrafters)
+- [All Contributors](https://github.com/ideacrafters/laravel-dittofeed/contributors)
 
 ## Related Packages
 
-- [dittofeed/php](https://github.com/dittofeed/php) - PHP SDK for Dittofeed
-- [dittofeed/node](https://github.com/dittofeed/node) - Node.js SDK for Dittofeed
+- [Dittofeed Official SDK](https://github.com/dittofeed/dittofeed) - Official Dittofeed platform
+- [Laravel Pixels Manager](https://github.com/ideacrafters/laravel-pixels-manager) - Manage advertising pixels in Laravel

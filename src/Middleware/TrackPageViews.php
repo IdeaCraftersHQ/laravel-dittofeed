@@ -1,9 +1,9 @@
 <?php
 
-namespace Dittofeed\Laravel\Middleware;
+namespace Ideacrafters\Dittofeed\Middleware;
 
 use Closure;
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

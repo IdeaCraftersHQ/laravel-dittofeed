@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to `dittofeed-laravel` will be documented in this file.
+All notable changes to `laravel-dittofeed` will be documented in this file.
 
 ## [Unreleased]
 
@@ -37,5 +37,5 @@ All notable changes to `dittofeed-laravel` will be documented in this file.
 ### Added
 - Initial stable release
 
-[Unreleased]: https://github.com/dittofeed/laravel/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/dittofeed/laravel/releases/tag/v1.0.0
+[Unreleased]: https://github.com/ideacrafters/laravel-dittofeed/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/ideacrafters/laravel-dittofeed/releases/tag/v1.0.0

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dittofeed\Laravel;
+namespace Ideacrafters\Dittofeed;
 
-use Dittofeed\Laravel\Exceptions\DittofeedException;
-use Dittofeed\Laravel\Exceptions\ValidationException;
+use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
+use Ideacrafters\Dittofeed\Exceptions\ValidationException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;

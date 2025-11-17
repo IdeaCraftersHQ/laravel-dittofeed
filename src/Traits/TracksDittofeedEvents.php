@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel\Traits;
+namespace Ideacrafters\Dittofeed\Traits;
 
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 
 trait TracksDittofeedEvents
 {

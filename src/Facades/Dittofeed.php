@@ -1,10 +1,10 @@
 <?php
 
-namespace Dittofeed\Laravel\Facades;
+namespace Ideacrafters\Dittofeed\Facades;
 
-use Dittofeed\Laravel\AdminClient;
-use Dittofeed\Laravel\DittofeedClient;
-use Dittofeed\Laravel\Testing\FakeDittofeed;
+use Ideacrafters\Dittofeed\AdminClient;
+use Ideacrafters\Dittofeed\DittofeedClient;
+use Ideacrafters\Dittofeed\Testing\FakeDittofeed;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -17,9 +17,9 @@ use Illuminate\Support\Facades\Facade;
  * @method static void flush()
  * @method static AdminClient admin()
  * @method static DittofeedClient getClient()
- * @method static \Dittofeed\Laravel\DittofeedManager resolveUserIdUsing(callable $callback)
+ * @method static \Ideacrafters\Dittofeed\DittofeedManager resolveUserIdUsing(callable $callback)
  *
- * @see \Dittofeed\Laravel\DittofeedManager
+ * @see \Ideacrafters\Dittofeed\DittofeedManager
  */
 class Dittofeed extends Facade
 {

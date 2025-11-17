@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel\Commands;
+namespace Ideacrafters\Dittofeed\Commands;
 
-use Dittofeed\Laravel\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
 use Illuminate\Console\Command;
 
 class DittofeedTestCommand extends Command

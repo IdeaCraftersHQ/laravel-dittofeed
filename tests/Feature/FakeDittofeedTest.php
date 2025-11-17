@@ -1,9 +1,9 @@
 <?php
 
-namespace Dittofeed\Laravel\Tests\Feature;
+namespace Ideacrafters\Dittofeed\Tests\Feature;
 
-use Dittofeed\Laravel\Facades\Dittofeed;
-use Dittofeed\Laravel\Tests\TestCase;
+use Ideacrafters\Dittofeed\Facades\Dittofeed;
+use Ideacrafters\Dittofeed\Tests\TestCase;
 
 class FakeDittofeedTest extends TestCase
 {

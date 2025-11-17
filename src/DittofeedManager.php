@@ -1,6 +1,6 @@
 <?php
 
-namespace Dittofeed\Laravel;
+namespace Ideacrafters\Dittofeed;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -217,7 +217,7 @@ class DittofeedManager
      */
     protected function queueEvent(string $type, array $data): array
     {
-        $job = new \Dittofeed\Laravel\Jobs\SendDittofeedEvent($type, $data);
+        $job = new \Ideacrafters\Dittofeed\Jobs\SendDittofeedEvent($type, $data);
 
         $connection = $this->config['queue']['connection'] ?? null;
         $queue = $this->config['queue']['queue'] ?? 'default';

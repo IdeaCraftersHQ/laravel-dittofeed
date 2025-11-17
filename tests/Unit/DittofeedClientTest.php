@@ -1,11 +1,11 @@
 <?php
 
-namespace Dittofeed\Laravel\Tests\Unit;
+namespace Ideacrafters\Dittofeed\Tests\Unit;
 
-use Dittofeed\Laravel\DittofeedClient;
-use Dittofeed\Laravel\Exceptions\DittofeedException;
-use Dittofeed\Laravel\Exceptions\ValidationException;
-use Dittofeed\Laravel\Tests\TestCase;
+use Ideacrafters\Dittofeed\DittofeedClient;
+use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
+use Ideacrafters\Dittofeed\Exceptions\ValidationException;
+use Ideacrafters\Dittofeed\Tests\TestCase;
 
 class DittofeedClientTest extends TestCase
 {

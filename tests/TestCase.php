@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel\Tests;
+namespace Ideacrafters\Dittofeed\Tests;
 
-use Dittofeed\Laravel\DittofeedServiceProvider;
+use Ideacrafters\Dittofeed\DittofeedServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
@@ -22,7 +22,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageAliases($app): array
     {
         return [
-            'Dittofeed' => \Dittofeed\Laravel\Facades\Dittofeed::class,
+            'Dittofeed' => \Ideacrafters\Dittofeed\Facades\Dittofeed::class,
         ];
     }
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dittofeed\Laravel\Jobs;
+namespace Ideacrafters\Dittofeed\Jobs;
 
-use Dittofeed\Laravel\DittofeedClient;
+use Ideacrafters\Dittofeed\DittofeedClient;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
