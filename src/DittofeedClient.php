@@ -38,7 +38,7 @@ class DittofeedClient
             'headers' => [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
-                'Authorization' => 'Basic ' . base64_encode($this->writeKey . ':'),
+                'Authorization' => $this->writeKey,
             ],
         ]);
     }
