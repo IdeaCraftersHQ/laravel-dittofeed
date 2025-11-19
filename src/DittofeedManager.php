@@ -11,7 +11,7 @@ class DittofeedManager
     protected DittofeedClient $client;
     protected ?AdminClient $adminClient = null;
     protected array $config;
-    protected ?callable $userIdResolver = null;
+    protected ?\Closure $userIdResolver = null;
 
     /**
      * Create a new Dittofeed manager instance.
@@ -35,7 +35,9 @@ class DittofeedManager
             }
         }
 
-        $this->userIdResolver = $config['user_id_resolver'] ?? null;
+        $this->userIdResolver = isset($config['user_id_resolver']) 
+            ? \Closure::fromCallable($config['user_id_resolver']) 
+            : null;
     }
 
     /**
@@ -171,7 +173,7 @@ class DittofeedManager
      */
     public function resolveUserIdUsing(callable $callback): self
     {
-        $this->userIdResolver = $callback;
+        $this->userIdResolver = \Closure::fromCallable($callback);
 
         return $this;
     }
