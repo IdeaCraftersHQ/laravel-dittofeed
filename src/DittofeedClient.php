@@ -208,8 +208,8 @@ class DittofeedClient
             $payload['context'] = $this->buildContext($input['context'] ?? []);
         }
 
-        return array_filter($payload, function ($value) {
-            return $value !== null;
+        return array_filter($payload, function ($key, $value) {
+            return $value !== null || $key === 'anonymousId'; // anonymousId is allowed to be null since its required by dittofeed service
         });
     }
 
