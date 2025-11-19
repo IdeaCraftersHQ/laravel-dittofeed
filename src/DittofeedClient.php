@@ -2,20 +2,24 @@
 
 namespace Ideacrafters\Dittofeed;
 
-use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
-use Ideacrafters\Dittofeed\Exceptions\ValidationException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
+use Ideacrafters\Dittofeed\Exceptions\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 
 class DittofeedClient
 {
     protected Client $httpClient;
+
     protected string $writeKey;
+
     protected string $host;
+
     protected array $config;
+
     protected array $eventQueue = [];
 
     /**
@@ -208,9 +212,9 @@ class DittofeedClient
             $payload['context'] = $this->buildContext($input['context'] ?? []);
         }
 
-        return array_filter($payload, function ($key, $value) {
+        return array_filter($payload, function ($value, $key) {
             return $value !== null || $key === 'anonymousId'; // anonymousId is allowed to be null since its required by dittofeed service
-        });
+        }, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
@@ -296,7 +300,7 @@ class DittofeedClient
                 $delay *= $multiplier;
             } catch (GuzzleException $e) {
                 throw DittofeedException::networkError(
-                    'Failed to communicate with Dittofeed API: ' . $e->getMessage(),
+                    'Failed to communicate with Dittofeed API: '.$e->getMessage(),
                     $e
                 );
             }
@@ -326,7 +330,7 @@ class DittofeedClient
      */
     protected function shouldFlushQueue(): bool
     {
-        if (!($this->config['batch']['auto_flush'] ?? true)) {
+        if (! ($this->config['batch']['auto_flush'] ?? true)) {
             return false;
         }
 
