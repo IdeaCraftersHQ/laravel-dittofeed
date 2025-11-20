@@ -8,11 +8,11 @@ use Ideacrafters\Dittofeed\Testing\FakeDittofeed;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static array identify(?string $userId = null, array $traits = [], ?string $anonymousId = null)
- * @method static array track(string $event, array $properties = [], ?string $userId = null, ?string $anonymousId = null)
- * @method static array page(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null)
- * @method static array screen(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null)
- * @method static array group(string $groupId, array $traits = [], ?string $userId = null, ?string $anonymousId = null)
+ * @method static array identify(?string $userId = null, array $traits = [], ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null)
+ * @method static array track(string $event, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null)
+ * @method static array page(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null)
+ * @method static array screen(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null)
+ * @method static array group(string $groupId, array $traits = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null)
  * @method static array batch(array $events)
  * @method static void flush()
  * @method static AdminClient admin()
