@@ -224,7 +224,7 @@ class DittofeedClient
      */
     protected function buildContext(array $customContext = []): array
     {
-        $context = $customContext;
+        $context = $customContext??[];
 
         if (app()->runningInConsole()) {
             return $context;
