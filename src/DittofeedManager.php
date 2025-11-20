@@ -43,12 +43,14 @@ class DittofeedManager
     /**
      * Identify a user with their traits.
      */
-    public function identify(?string $userId = null, array $traits = [], ?string $anonymousId = null): array
+    public function identify(?string $userId = null, array $traits = [], ?string $anonymousId = null,?string $messageId = null,?string $timestamp = null): array
     {
         $data = [
             'userId' => $userId ?? $this->resolveUserId(),
             'anonymousId' => $anonymousId ?? $this->getAnonymousId(),
             'traits' => $traits,
+            'messageId' => $messageId,
+            'timestamp' => $timestamp,
         ];
 
         return $this->shouldQueue()
@@ -59,13 +61,15 @@ class DittofeedManager
     /**
      * Track a custom event.
      */
-    public function track(string $event, array $properties = [], ?string $userId = null, ?string $anonymousId = null): array
+    public function track(string $event, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null): array
     {
         $data = [
             'userId' => $userId ?? $this->resolveUserId(),
             'anonymousId' => $anonymousId ?? $this->getAnonymousId(),
             'event' => $event,
             'properties' => $properties,
+            'messageId' => $messageId,
+            'timestamp' => $timestamp,
         ];
 
         return $this->shouldQueue()
@@ -76,13 +80,15 @@ class DittofeedManager
     /**
      * Track a page view.
      */
-    public function page(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null): array
+    public function page(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null): array
     {
         $data = [
             'userId' => $userId ?? $this->resolveUserId(),
             'anonymousId' => $anonymousId ?? $this->getAnonymousId(),
             'name' => $name,
             'properties' => $properties,
+            'messageId' => $messageId,
+            'timestamp' => $timestamp,
         ];
 
         // Add URL properties if not set and we're in a web context
@@ -101,13 +107,15 @@ class DittofeedManager
     /**
      * Track a screen view.
      */
-    public function screen(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null): array
+    public function screen(?string $name = null, array $properties = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null): array
     {
         $data = [
             'userId' => $userId ?? $this->resolveUserId(),
             'anonymousId' => $anonymousId ?? $this->getAnonymousId(),
             'name' => $name,
             'properties' => $properties,
+            'messageId' => $messageId,
+            'timestamp' => $timestamp,
         ];
 
         return $this->shouldQueue()
@@ -118,13 +126,15 @@ class DittofeedManager
     /**
      * Associate a user with a group.
      */
-    public function group(string $groupId, array $traits = [], ?string $userId = null, ?string $anonymousId = null): array
+    public function group(string $groupId, array $traits = [], ?string $userId = null, ?string $anonymousId = null, ?string $messageId = null, ?string $timestamp = null): array
     {
         $data = [
             'userId' => $userId ?? $this->resolveUserId(),
             'anonymousId' => $anonymousId ?? $this->getAnonymousId(),
             'groupId' => $groupId,
             'traits' => $traits,
+            'messageId' => $messageId,
+            'timestamp' => $timestamp,
         ];
 
         return $this->shouldQueue()
