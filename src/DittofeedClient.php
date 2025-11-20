@@ -213,7 +213,9 @@ class DittofeedClient
         }
 
         return array_filter($payload, function ($value, $key) {
-            return $value !== null || $key === 'anonymousId'; // anonymousId is allowed to be null since its required by dittofeed service
+            return $value !== null || 
+            $key === 'anonymousId'|| // anonymousId is allowed to be null since its required by dittofeed service
+            $key === 'context'; // context is allowed to be null since its required by dittofeed service
         }, ARRAY_FILTER_USE_BOTH);
     }
 
