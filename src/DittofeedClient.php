@@ -209,7 +209,9 @@ class DittofeedClient
 
         // Add context if enabled
         if ($this->config['context']['enabled'] ?? true) {
-            $payload['context'] = $this->buildContext($input['context'] ?? []);
+            $context = $this->buildContext($input['context'] ?? []);
+            // Convert empty array to empty object to ensure JSON encoding as {} not []
+            $payload['context'] = empty($context) ? (object)[] : $context;
         }
 
         return array_filter($payload, function ($value, $key) {
