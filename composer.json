@@ -28,15 +28,16 @@
         "ramsey/uuid": "^4.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
-        "phpunit/phpunit": "^9.0|^10.0",
-        "mockery/mockery": "^1.4",
-        "laravel/pint": "^1.14",
-        "phpstan/phpstan": "^1.10",
+        "barryvdh/laravel-ide-helper": "^3.6",
         "larastan/larastan": "^2.0|^3.0",
+        "laravel/pint": "^1.14",
+        "mockery/mockery": "^1.4",
+        "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
         "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^1.10",
         "phpstan/phpstan-deprecation-rules": "^1.0|^2.0",
-        "phpstan/phpstan-phpunit": "^1.0|^2.0"
+        "phpstan/phpstan-phpunit": "^1.0|^2.0",
+        "phpunit/phpunit": "^9.0|^10.0"
     },
     "autoload": {
         "psr-4": {

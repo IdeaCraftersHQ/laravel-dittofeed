@@ -2,20 +2,24 @@
 
 namespace Ideacrafters\Dittofeed;
 
-use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
-use Ideacrafters\Dittofeed\Exceptions\ValidationException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use Ideacrafters\Dittofeed\Exceptions\DittofeedException;
+use Ideacrafters\Dittofeed\Exceptions\ValidationException;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Uuid;
 
 class DittofeedClient
 {
     protected Client $httpClient;
+
     protected string $writeKey;
+
     protected string $host;
+
     protected array $config;
+
     protected array $eventQueue = [];
 
     /**
@@ -38,7 +42,7 @@ class DittofeedClient
             'headers' => [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
-                'Authorization' => 'Basic ' . base64_encode($this->writeKey . ':'),
+                'Authorization' => $this->writeKey,
             ],
         ]);
     }
@@ -205,12 +209,16 @@ class DittofeedClient
 
         // Add context if enabled
         if ($this->config['context']['enabled'] ?? true) {
-            $payload['context'] = $this->buildContext($input['context'] ?? []);
+            $context = $this->buildContext($input['context'] ?? []);
+            // Convert empty array to empty object to ensure JSON encoding as {} not []
+            $payload['context'] = empty($context) ? (object)[] : $context;
         }
 
-        return array_filter($payload, function ($value) {
-            return $value !== null;
-        });
+        return array_filter($payload, function ($value, $key) {
+            return $value !== null || 
+            $key === 'anonymousId'|| // anonymousId is allowed to be null since its required by dittofeed service
+            $key === 'context'; // context is allowed to be null since its required by dittofeed service
+        }, ARRAY_FILTER_USE_BOTH);
     }
 
     /**
@@ -218,7 +226,7 @@ class DittofeedClient
      */
     protected function buildContext(array $customContext = []): array
     {
-        $context = $customContext;
+        $context = $customContext??[];
 
         if (app()->runningInConsole()) {
             return $context;
@@ -296,7 +304,7 @@ class DittofeedClient
                 $delay *= $multiplier;
             } catch (GuzzleException $e) {
                 throw DittofeedException::networkError(
-                    'Failed to communicate with Dittofeed API: ' . $e->getMessage(),
+                    'Failed to communicate with Dittofeed API: '.$e->getMessage(),
                     $e
                 );
             }
@@ -326,7 +334,7 @@ class DittofeedClient
      */
     protected function shouldFlushQueue(): bool
     {
-        if (!($this->config['batch']['auto_flush'] ?? true)) {
+        if (! ($this->config['batch']['auto_flush'] ?? true)) {
             return false;
         }
 
